@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddradf205mbgq"]
+
+[ext_resource type="Texture2D" uid="uid://bxce71wn4bun2" path="res://assets/test_square.png" id="1_4h1kp"]
+[ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
+[ext_resource type="Script" path="res://level_2/dragable_piece.gd" id="2_qnche"]
+[ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_5iwyr")
+
+[node name="DragablePiece" type="Area2D" parent="."]
+position = Vector2(194, 118)
+collision_mask = 2
+script = ExtResource("2_qnche")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="DragablePiece"]
+position = Vector2(-4.99999, -1.99999)
+scale = Vector2(4.86585, 4.86585)
+texture = ExtResource("1_4h1kp")
+
+[node name="Button" type="Button" parent="DragablePiece/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = 23.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DragablePiece"]
+polygon = PackedVector2Array(-8, -17, -55, -52, -67, -64, -66, -84, -32, -114, 6, -114, 62, -82, 98, -23, 91, 47, 49, 95, -7, 109, -67, 107, -105, 70, -106, 29, -85, 15, -48, 15, -15, -1, 2, -7)
+
+[node name="FillableArea" parent="." instance=ExtResource("4_4466f")]
+position = Vector2(404, 164)
+total_areas = 11
+
+[connection signal="button_down" from="DragablePiece/Sprite2D/Button" to="DragablePiece" method="_on_button_button_down"]
+[connection signal="button_up" from="DragablePiece/Sprite2D/Button" to="DragablePiece" method="_on_button_button_up"]
