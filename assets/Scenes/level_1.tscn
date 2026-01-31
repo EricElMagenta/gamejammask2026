@@ -1,18 +1,54 @@
-[gd_scene load_steps=13 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=18 format=3 uid="uid://c4568ccqddg6a"]
 
-[ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Sprites/Bolsa.png" id="1_ggigl"]
 [ext_resource type="Script" path="res://assets/Scenes/level_1.gd" id="1_kla56"]
-[ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Sprites/Item.png" id="2_np4kn"]
 [ext_resource type="PackedScene" uid="uid://ddradf205mbgq" path="res://level_2/level_2.tscn" id="2_ocdra"]
 [ext_resource type="Script" path="res://assets/Scripts/item.gd" id="2_rkbga"]
 [ext_resource type="Script" path="res://assets/Scenes/bolsa.gd" id="2_vhles"]
+[ext_resource type="Texture2D" uid="uid://dtj58qrpi8g4q" path="res://assets/Fondo_Juego1.png" id="3_xfunq"]
+[ext_resource type="Texture2D" uid="uid://b651hg5ut27gs" path="res://assets/Caja.png" id="5_77tbx"]
+[ext_resource type="Texture2D" uid="uid://ceu7oaaop4f60" path="res://assets/Pegamento.png" id="7_4abme"]
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="7_pbvbb"]
+[ext_resource type="Texture2D" uid="uid://d2dt30fy8tvv8" path="res://assets/scotch.png" id="8_swnxl"]
+[ext_resource type="Texture2D" uid="uid://b3ebl3f2daanw" path="res://assets/acrilicos.png" id="9_6s2bk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
-size = Vector2(32, 32)
+size = Vector2(128, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5upe"]
+size = Vector2(56, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0us1i"]
+size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evs8o"]
-size = Vector2(32, 32)
+size = Vector2(80, 80)
+
+[sub_resource type="Animation" id="Animation_65ohk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_od4eo"]
 resource_name = "transition"
@@ -42,33 +78,6 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_65ohk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kdkxv"]
 _data = {
 "RESET": SubResource("Animation_65ohk"),
@@ -80,16 +89,19 @@ modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_kla56")
 next_scene = ExtResource("2_ocdra")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 646.0
-offset_bottom = 369.0
-color = Color(0.533333, 0.486275, 0.486275, 1)
+[node name="FondoJuego1" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("3_xfunq")
+metadata/_edit_lock_ = true
+
+[node name="BG" type="Sprite2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="ResultLabel" type="Label" parent="."]
+visible = false
 offset_left = 296.0
 offset_top = 66.0
 offset_right = 336.0
@@ -98,6 +110,7 @@ theme_override_font_sizes/font_size = 50
 
 [node name="Time" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = 312.0
 offset_top = 16.0
 offset_right = 352.0
@@ -113,21 +126,25 @@ position = Vector2(316, 173)
 script = ExtResource("2_vhles")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
-texture = ExtResource("1_ggigl")
+position = Vector2(4, 3)
+scale = Vector2(0.596447, 0.596447)
+texture = ExtResource("5_77tbx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bolsa"]
+position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_4e7u4")
 
 [node name="Item" type="Area2D" parent="."]
-position = Vector2(97, 128)
+position = Vector2(520, 232)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Item"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("7_4abme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
-shape = SubResource("RectangleShape2D_evs8o")
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_e5upe")
 
 [node name="Button" type="Button" parent="Item"]
 modulate = Color(1, 1, 1, 0)
@@ -137,15 +154,16 @@ offset_right = 17.0
 offset_bottom = 17.0
 
 [node name="Item2" type="Area2D" parent="."]
-position = Vector2(96, 238)
+position = Vector2(112, 104)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Item2"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("8_swnxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
-shape = SubResource("RectangleShape2D_evs8o")
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0us1i")
 
 [node name="Button" type="Button" parent="Item2"]
 modulate = Color(1, 1, 1, 0)
@@ -155,12 +173,12 @@ offset_right = 17.0
 offset_bottom = 17.0
 
 [node name="Item3" type="Area2D" parent="."]
-position = Vector2(207, 277)
+position = Vector2(184, 296)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Item3"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("9_6s2bk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
 shape = SubResource("RectangleShape2D_evs8o")
