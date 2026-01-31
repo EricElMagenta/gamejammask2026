@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=12 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
 [ext_resource type="Texture2D" uid="uid://bcfbgcta68uf6" path="res://assets/dance_left.png" id="2_lwtps"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvb3g3bxt6gxk" path="res://assets/bullseye_square.png" id="4_oawxf"]
 [ext_resource type="Texture2D" uid="uid://djf5lxhu5bre4" path="res://assets/target_square.png" id="5_jlsb4"]
 [ext_resource type="Script" path="res://Level_4/character_body_2d.gd" id="5_xnqte"]
+[ext_resource type="Script" path="res://Level_4/target_destroyer.gd" id="7_pgxvq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -31,14 +32,14 @@ size = Vector2(53.5, 110)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(-12, -20)
 scale = Vector2(0.543874, 0.444812)
 texture = ExtResource("1_v3lqp")
 centered = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(325, 275)
@@ -71,12 +72,13 @@ shape = SubResource("RectangleShape2D_yqfev")
 rotation = 0.785398
 texture = ExtResource("5_jlsb4")
 
-[node name="TargetStopper" type="Area2D" parent="."]
-position = Vector2(-30, 40)
+[node name="TargetDestroyer" type="Area2D" parent="."]
+position = Vector2(500, 40)
+script = ExtResource("7_pgxvq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetStopper"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetDestroyer"]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_5dmj6")
 
-[connection signal="area_entered" from="TargetStopper" to="TargetStopper" method="_on_area_entered"]
-[connection signal="body_entered" from="TargetStopper" to="Target" method="_on_target_destroyer_body_entered"]
+[connection signal="area_entered" from="TargetDestroyer" to="TargetDestroyer" method="_on_area_entered"]
+[connection signal="body_entered" from="TargetDestroyer" to="Target" method="_on_target_destroyer_body_entered"]
