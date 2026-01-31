@@ -19,6 +19,7 @@ func _process(delta):
 	if dragging:
 		global_position = get_global_mouse_position() + offset
 
-func _on_area_entered(area):
-	if area.name == "Bolsa":
-		queue_free();
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bolsa"):
+		area.agregar_item()
+		queue_free()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=7 format=3 uid="uid://c4568ccqddg6a"]
 
 [ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Sprites/Bolsa.png" id="1_ggigl"]
+[ext_resource type="Script" path="res://assets/Scenes/bolsa.gd" id="1_y0gvf"]
 [ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Sprites/Item.png" id="2_np4kn"]
-[ext_resource type="Script" path="res://assets/Scripts/item.gd" id="2_rkbga"]
+[ext_resource type="Script" path="res://assets/Scripts/DraggableItem.gd" id="2_rkbga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
 size = Vector2(32, 32)
@@ -12,8 +13,9 @@ size = Vector2(32, 32)
 
 [node name="Main" type="Node2D"]
 
-[node name="Bolsa" type="Area2D" parent="."]
+[node name="Bolsa" type="Area2D" parent="." groups=["bolsa"]]
 position = Vector2(316, 173)
+script = ExtResource("1_y0gvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
 texture = ExtResource("1_ggigl")
@@ -50,6 +52,8 @@ texture = ExtResource("2_np4kn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
 shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="area_entered" from="Item" to="Item" method="_on_area_entered"]
 [connection signal="area_entered" from="Item2" to="Item2" method="_on_area_entered"]
