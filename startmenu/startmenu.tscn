@@ -12,15 +12,14 @@ next_scene = ExtResource("2_jugf7")
 position = Vector2(320, 180)
 texture = ExtResource("2_afofu")
 hframes = 2
-frame = 1
 
 [node name="Title" type="Label" parent="Background"]
-offset_left = -42.7903
+offset_left = -57.0
 offset_top = -145.227
-offset_right = 14.2097
+offset_right = 65.0
 offset_bottom = -122.227
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "TÍTULO"
+text = "PRISA TIRÁNICA"
 
 [node name="StartButton" type="Button" parent="Background"]
 self_modulate = Color(1, 1, 1, 0)

@@ -3,12 +3,15 @@ extends Node2D
 @export var next_scene:PackedScene
 @onready var bg = $Background
 @onready var next_game_btn = $Background/NextGameBtn
+@onready var title_label = $Background/Title
 
 func _ready():
+	AudioManager.play_music()
 	GameManager.total_score = 0
 	bg.frame = 0
 
 func _on_button_pressed():
+	title_label.visible = false
 	bg.frame = 1
 	next_game_btn.disabled = false
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg1f4vucwlm5g"]
+
+[ext_resource type="Script" path="res://audio_manager.gd" id="1_iiwig"]
+[ext_resource type="AudioStream" uid="uid://bvy6lrhfxbx5n" path="res://audio/GGJ 2026_loose_test_1.ogg" id="2_lk0i2"]
+[ext_resource type="AudioStream" uid="uid://7b7fqu12h2t" path="res://audio/GGJ 2026_victory_test_1.ogg" id="3_mbnuf"]
+[ext_resource type="AudioStream" uid="uid://bfr8sb5npvb6g" path="res://audio/main_theme.ogg" id="4_5b3je"]
+[ext_resource type="AudioStream" uid="uid://duka2l323hkk6" path="res://audio/mini_games.ogg" id="5_jd3ly"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_iiwig")
+
+[node name="Defeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lk0i2")
+bus = &"SFX"
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mbnuf")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5b3je")
+volume_db = -5.0
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jd3ly")
+volume_db = -5.0
