@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=8 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
 [ext_resource type="Script" path="res://Level_3/sprite_2d.gd" id="3_235pm"]
 [ext_resource type="Texture2D" uid="uid://b517ssm8o6xtm" path="res://assets/fondo_tirana01.jpg" id="4_unsrb"]
+[ext_resource type="Texture2D" uid="uid://davt111d5nygy" path="res://assets/timer_placeholder.png" id="5_h5gi8"]
 
 [sub_resource type="Theme" id="Theme_t7il4"]
+default_font_size = 50
+
+[sub_resource type="Theme" id="Theme_gte5i"]
 default_font_size = 50
 
 [node name="Node2D" type="Node2D"]
@@ -18,6 +22,7 @@ texture = ExtResource("2_2yma6")
 script = ExtResource("3_235pm")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 99.0
@@ -49,6 +54,7 @@ text = "[b]¡PERDEDOR![/b]"
 layer = -100
 
 [node name="BGImage" type="Sprite2D" parent="Background"]
+modulate = Color(0.652088, 0.55361, 0.395187, 1)
 position = Vector2(-14, -54)
 scale = Vector2(0.541391, 0.461369)
 texture = ExtResource("4_unsrb")
@@ -59,10 +65,22 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="TimeLabel" type="Label" parent="."]
-offset_left = 296.0
-offset_top = 16.0
-offset_right = 336.0
-offset_bottom = 39.0
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_left = 35.0
+offset_top = 280.0
+offset_right = 107.0
+offset_bottom = 352.0
+theme = SubResource("Theme_gte5i")
+
+[node name="TimeLabel2" type="RichTextLabel" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(51, 265)
+rotation = 0.785398
+scale = Vector2(1.25559, 1.28915)
+texture = ExtResource("5_h5gi8")
+centered = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
