@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=5 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
+[ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
 [ext_resource type="PackedScene" uid="uid://cocot8x4dtxs" path="res://level_2/dragable_piece.tscn" id="2_ryf2p"]
 [ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_5iwyr")
+next_scene = ExtResource("2_o6gs2")
 
 [node name="DragablePiece" parent="." instance=ExtResource("2_ryf2p")]
 position = Vector2(272, 176)
@@ -24,3 +26,12 @@ offset_bottom = 23.0
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 263.0
+offset_top = 146.0
+offset_right = 303.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 50
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

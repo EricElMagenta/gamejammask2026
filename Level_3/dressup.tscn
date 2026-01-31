@@ -12,7 +12,7 @@ default_font_size = 50
 script = ExtResource("1_hy6w5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(584, 395)
+position = Vector2(320, 180)
 scale = Vector2(2.156, 3.65957)
 texture = ExtResource("2_2yma6")
 script = ExtResource("3_235pm")
@@ -43,5 +43,6 @@ layer = -100
 
 [node name="BGImage" type="Sprite2D" parent="Background"]
 position = Vector2(-14, -54)
+scale = Vector2(0.541391, 0.461369)
 texture = ExtResource("4_unsrb")
 centered = false
