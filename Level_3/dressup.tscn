@@ -1,33 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=10 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
 [ext_resource type="PackedScene" uid="uid://d17k0bqafnn6k" path="res://Level_4/node_2d.tscn" id="2_y8aqe"]
 [ext_resource type="Script" path="res://Level_3/sprite_2d.gd" id="3_235pm"]
 [ext_resource type="Texture2D" uid="uid://b517ssm8o6xtm" path="res://assets/fondo_tirana01.jpg" id="4_unsrb"]
-[ext_resource type="Texture2D" uid="uid://davt111d5nygy" path="res://assets/timer_placeholder.png" id="5_h5gi8"]
-[ext_resource type="Texture2D" uid="uid://jti3vnxtvv7v" path="res://assets/Sprites/espacio.png" id="6_spyy4"]
-[ext_resource type="Texture2D" uid="uid://dsvi4khdgvx40" path="res://assets/Sprites/espacio2.png" id="7_covon"]
 
 [sub_resource type="Theme" id="Theme_t7il4"]
 default_font_size = 50
 
-[sub_resource type="Theme" id="Theme_gte5i"]
-default_font_size = 50
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ojpqd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_spyy4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_covon")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
 tracks/0/type = "value"
@@ -131,7 +112,6 @@ texture = ExtResource("2_2yma6")
 script = ExtResource("3_235pm")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = 18.0
 offset_top = 18.0
 offset_right = 99.0
@@ -159,44 +139,15 @@ theme_override_font_sizes/bold_italics_font_size = 1
 bbcode_enabled = true
 text = "[b]¡PERDEDOR![/b]"
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="BGImage" type="Sprite2D" parent="Background"]
-modulate = Color(0.652088, 0.55361, 0.395187, 1)
-position = Vector2(-14, -54)
-scale = Vector2(0.541391, 0.461369)
-texture = ExtResource("4_unsrb")
-centered = false
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-offset_left = 35.0
-offset_top = 280.0
-offset_right = 107.0
-offset_bottom = 352.0
-theme = SubResource("Theme_gte5i")
-
-[node name="TimeLabel2" type="RichTextLabel" parent="MarginContainer2"]
-layout_mode = 2
-
-[node name="TimerContainer" type="Sprite2D" parent="."]
-z_index = -5
-position = Vector2(51, 265)
-rotation = 0.785398
-scale = Vector2(1.25559, 1.28915)
-texture = ExtResource("5_h5gi8")
-centered = false
-
-[node name="MechanicInstructions" type="AnimatedSprite2D" parent="."]
-position = Vector2(552, 306)
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_ojpqd")
-autoplay = "default"
-frame_progress = 0.91928
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 39.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
