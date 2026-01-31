@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvy6lrhfxbx5n"
+path="res://.godot/imported/GGJ 2026_loose_test_1.ogg-6ca443f09bd2fe734e1fdab865e1785e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/GGJ 2026_loose_test_1.ogg"
+dest_files=["res://.godot/imported/GGJ 2026_loose_test_1.ogg-6ca443f09bd2fe734e1fdab865e1785e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
