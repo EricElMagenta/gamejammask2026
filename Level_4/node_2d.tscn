@@ -142,7 +142,7 @@ shape = SubResource("RectangleShape2D_yqfev")
 
 [node name="Target" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(858, 44)
+position = Vector2(878, 43)
 script = ExtResource("5_xnqte")
 metadata/_edit_group_ = true
 
@@ -156,7 +156,7 @@ texture = ExtResource("5_jlsb4")
 
 [node name="Target2" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1281, 44)
+position = Vector2(1301, 43)
 script = ExtResource("5_xnqte")
 metadata/_edit_group_ = true
 
@@ -170,7 +170,7 @@ texture = ExtResource("5_jlsb4")
 
 [node name="Target3" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1204, 43)
+position = Vector2(1224, 42)
 script = ExtResource("5_xnqte")
 metadata/_edit_group_ = true
 
@@ -184,7 +184,7 @@ texture = ExtResource("5_jlsb4")
 
 [node name="Target4" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(982, 44)
+position = Vector2(1002, 43)
 script = ExtResource("5_xnqte")
 metadata/_edit_group_ = true
 
@@ -198,7 +198,7 @@ texture = ExtResource("5_jlsb4")
 
 [node name="Target5" type="CharacterBody2D" parent="."]
 material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1127, 45)
+position = Vector2(1147, 44)
 script = ExtResource("5_xnqte")
 metadata/_edit_group_ = true
 
@@ -207,6 +207,76 @@ scale = Vector2(0.325, 1)
 shape = SubResource("RectangleShape2D_yqfev")
 
 [node name="Sprite2D" type="Sprite2D" parent="Target5"]
+rotation = 0.785398
+texture = ExtResource("5_jlsb4")
+
+[node name="Target6" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_xm2cx")
+position = Vector2(1457, 43)
+script = ExtResource("5_xnqte")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target6"]
+scale = Vector2(0.325, 1)
+shape = SubResource("RectangleShape2D_yqfev")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target6"]
+rotation = 0.785398
+texture = ExtResource("5_jlsb4")
+
+[node name="Target7" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_xm2cx")
+position = Vector2(1880, 43)
+script = ExtResource("5_xnqte")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target7"]
+scale = Vector2(0.325, 1)
+shape = SubResource("RectangleShape2D_yqfev")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target7"]
+rotation = 0.785398
+texture = ExtResource("5_jlsb4")
+
+[node name="Target8" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_xm2cx")
+position = Vector2(1803, 42)
+script = ExtResource("5_xnqte")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target8"]
+scale = Vector2(0.325, 1)
+shape = SubResource("RectangleShape2D_yqfev")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target8"]
+rotation = 0.785398
+texture = ExtResource("5_jlsb4")
+
+[node name="Target9" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_xm2cx")
+position = Vector2(1581, 43)
+script = ExtResource("5_xnqte")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target9"]
+scale = Vector2(0.325, 1)
+shape = SubResource("RectangleShape2D_yqfev")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target9"]
+rotation = 0.785398
+texture = ExtResource("5_jlsb4")
+
+[node name="Target10" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_xm2cx")
+position = Vector2(1726, 44)
+script = ExtResource("5_xnqte")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target10"]
+scale = Vector2(0.325, 1)
+shape = SubResource("RectangleShape2D_yqfev")
+
+[node name="Sprite2D" type="Sprite2D" parent="Target10"]
 rotation = 0.785398
 texture = ExtResource("5_jlsb4")
 

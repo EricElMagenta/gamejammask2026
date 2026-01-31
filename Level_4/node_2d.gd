@@ -2,7 +2,7 @@ extends Node2D
 
 @export var next_scene:PackedScene
 
-const WINNING_SCORE = 4
+const WINNING_SCORE = 8
 
 var inside_bullseye := false
 var current_target:CharacterBody2D = null

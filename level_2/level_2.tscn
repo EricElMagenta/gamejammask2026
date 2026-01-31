@@ -182,7 +182,7 @@ position = Vector2(544, 306)
 scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_falft")
 autoplay = "default"
-frame_progress = 0.726046
+frame_progress = 0.696307
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
