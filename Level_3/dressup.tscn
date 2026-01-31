@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=7 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
+[ext_resource type="PackedScene" uid="uid://ybvgj21mfde6" path="res://ending/end.tscn" id="2_8wc8r"]
 [ext_resource type="Script" path="res://Level_3/sprite_2d.gd" id="3_235pm"]
 [ext_resource type="Texture2D" uid="uid://b517ssm8o6xtm" path="res://assets/fondo_tirana01.jpg" id="4_unsrb"]
 
@@ -10,6 +11,7 @@ default_font_size = 50
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hy6w5")
+next_scene = ExtResource("2_8wc8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320, 180)

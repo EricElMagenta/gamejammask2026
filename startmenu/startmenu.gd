@@ -5,6 +5,7 @@ extends Node2D
 @onready var next_game_btn = $Background/NextGameBtn
 
 func _ready():
+	GameManager.total_score = 0
 	bg.frame = 0
 
 func _on_button_pressed():
