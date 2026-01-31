@@ -1,10 +1,11 @@
 extends Node2D
 
 var contador = 0
-var puntos_victoria = 30
+var puntos_victoria = 10
 var success = false
 @onready var label = $Label # Ajusta $Label al nombre de tu nodo Label
-@onready var label_victoria = $RichTextLabel # Label enriquecido
+@onready var label_victoria = $MarginContainer/RichTextLabel # Label enriquecido
+@onready var textura_sprite = $Sprite2D
 
 func _process(_delta):
 	# Detecta si la tecla se presiona solo una vez por pulsación
@@ -18,6 +19,7 @@ func _process(_delta):
 func mostrar_texto_victoria():
 	label_victoria.visible = true # Hace visible el nodo
 	#label_victoria.text = "¡Condición cumplida!" # Cambia el texto si es necesario
+	textura_sprite.success = true
 
 func condicion_victoria():	
 	if contador == puntos_victoria:
