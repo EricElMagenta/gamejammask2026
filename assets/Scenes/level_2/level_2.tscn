@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Texture2D" uid="uid://bxce71wn4bun2" path="res://assets/test_square.png" id="1_4h1kp"]
-[ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
-[ext_resource type="Script" path="res://level_2/dragable_piece.gd" id="2_qnche"]
-[ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
+[ext_resource type="Script" path="res://assets/Scenes/level_2/level_2.gd" id="1_5iwyr"]
+[ext_resource type="Script" path="res://assets/Scenes/level_2/dragable_piece.gd" id="2_qnche"]
+[ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://assets/Scenes/level_2/fillable_area.tscn" id="4_4466f"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_5iwyr")

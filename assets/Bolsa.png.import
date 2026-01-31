@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hqssot2vps20"
-path="res://.godot/imported/Item.png-9cd5b035afd7733f6db69aeec4e38928.ctex"
+uid="uid://hgxgi17npwe4"
+path="res://.godot/imported/Bolsa.png-f0dc4d67b2f422797b376803d8262f98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Item.png"
-dest_files=["res://.godot/imported/Item.png-9cd5b035afd7733f6db69aeec4e38928.ctex"]
+source_file="res://assets/Bolsa.png"
+dest_files=["res://.godot/imported/Bolsa.png-f0dc4d67b2f422797b376803d8262f98.ctex"]
 
 [params]
 

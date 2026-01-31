@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=8 format=3 uid="uid://c4568ccqddg6a"]
 
-[ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Sprites/Bolsa.png" id="1_ggigl"]
-[ext_resource type="Script" path="res://assets/Scenes/bolsa.gd" id="1_y0gvf"]
-[ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Sprites/Item.png" id="2_np4kn"]
-[ext_resource type="Script" path="res://assets/Scripts/DraggableItem.gd" id="2_rkbga"]
+[ext_resource type="Script" path="res://assets/Scenes/level_1/level_1.gd" id="1_qngoe"]
+[ext_resource type="Script" path="res://assets/Scenes/level_1/bolsa.gd" id="2_rg555"]
+[ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Bolsa.png" id="3_fc64m"]
+[ext_resource type="Script" path="res://assets/Scenes/level_1/DraggableItem.gd" id="4_thl65"]
+[ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Item.png" id="5_mkwy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
 size = Vector2(32, 32)
@@ -12,44 +13,45 @@ size = Vector2(32, 32)
 size = Vector2(32, 32)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_qngoe")
 
 [node name="Bolsa" type="Area2D" parent="." node_paths=PackedStringArray("label_contador") groups=["bolsa"]]
 position = Vector2(316, 173)
-script = ExtResource("1_y0gvf")
+script = ExtResource("2_rg555")
 label_contador = NodePath("../CanvasLayer/Label")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
-texture = ExtResource("1_ggigl")
+texture = ExtResource("3_fc64m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bolsa"]
 shape = SubResource("RectangleShape2D_4e7u4")
 
 [node name="Item" type="Area2D" parent="."]
 position = Vector2(97, 128)
-script = ExtResource("2_rkbga")
+script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("5_mkwy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
 shape = SubResource("RectangleShape2D_evs8o")
 
 [node name="Item2" type="Area2D" parent="."]
 position = Vector2(96, 238)
-script = ExtResource("2_rkbga")
+script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item2"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("5_mkwy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
 shape = SubResource("RectangleShape2D_evs8o")
 
 [node name="Item3" type="Area2D" parent="."]
 position = Vector2(207, 277)
-script = ExtResource("2_rkbga")
+script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item3"]
-texture = ExtResource("2_np4kn")
+texture = ExtResource("5_mkwy6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
 shape = SubResource("RectangleShape2D_evs8o")
@@ -64,6 +66,12 @@ offset_bottom = 49.0
 scale = Vector2(2, 2)
 text = "0"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="Item" to="Item" method="_on_area_entered"]
 [connection signal="area_entered" from="Item2" to="Item2" method="_on_area_entered"]
 [connection signal="area_entered" from="Item3" to="Item3" method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
