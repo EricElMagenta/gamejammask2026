@@ -1,7 +1,7 @@
 extends Node2D
 
 var contador = 0
-var puntos_victoria = 10
+var puntos_victoria = 15
 var success = false
 var failure = false
 var can_dress = false
@@ -11,7 +11,7 @@ var can_dress = false
 @onready var label_victoria = $MarginContainer/RichTextLabel # Label enriquecido
 @onready var textura_sprite = $Sprite2D
 @onready var texto_perder = $MarginContainer/TextoPerder
-@onready var time_label = $TimeLabel
+@onready var time_label = $MarginContainer2/TimeLabel2
 @onready var timer = $Timer
 
 func _ready():
@@ -54,9 +54,5 @@ func actualizar_contador():
 
 
 func _on_timer_timeout():
-	mostrar_texto_perder()
-
-
-func _on_transition_timer_timeout():
-	can_dress = true
-	timer.start()
+	contador -= 100
+	mostrar_texto_perder()	

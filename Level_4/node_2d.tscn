@@ -23,8 +23,21 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqfev"]
-size = Vector2(129.231, 43)
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxain"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tcly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3pq4f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Node2D" type="Node2D"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xm2cx"]
 
@@ -111,146 +124,13 @@ position = Vector2(325, 275)
 scale = Vector2(2.284, 1.75532)
 sprite_frames = SubResource("SpriteFrames_7xll4")
 animation = &"dance"
-autoplay = "dance"
+frame = 1
+frame_progress = 0.969134
 
-[node name="Bullseye" type="Area2D" parent="."]
-position = Vector2(320, 40)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bullseye"]
-rotation = 0.785398
-texture = ExtResource("4_oawxf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullseye"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Target" type="CharacterBody2D" parent="."]
-material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1088, 40)
-script = ExtResource("5_xnqte")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Sprite2D" type="Sprite2D" parent="Target"]
-rotation = 0.785398
-texture = ExtResource("5_jlsb4")
-
-[node name="Target2" type="CharacterBody2D" parent="."]
-material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1694, 40)
-script = ExtResource("5_xnqte")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target2"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Sprite2D" type="Sprite2D" parent="Target2"]
-rotation = 0.785398
-texture = ExtResource("5_jlsb4")
-
-[node name="Target3" type="CharacterBody2D" parent="."]
-material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1606, 40)
-script = ExtResource("5_xnqte")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target3"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Sprite2D" type="Sprite2D" parent="Target3"]
-rotation = 0.785398
-texture = ExtResource("5_jlsb4")
-
-[node name="Target4" type="CharacterBody2D" parent="."]
-material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1302, 40)
-script = ExtResource("5_xnqte")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target4"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Sprite2D" type="Sprite2D" parent="Target4"]
-rotation = 0.785398
-texture = ExtResource("5_jlsb4")
-
-[node name="Target5" type="CharacterBody2D" parent="."]
-material = SubResource("CanvasItemMaterial_xm2cx")
-position = Vector2(1518, 40)
-script = ExtResource("5_xnqte")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target5"]
-scale = Vector2(0.325, 1)
-shape = SubResource("RectangleShape2D_yqfev")
-
-[node name="Sprite2D" type="Sprite2D" parent="Target5"]
-rotation = 0.785398
-texture = ExtResource("5_jlsb4")
-
-[node name="TargetStopper" type="Area2D" parent="."]
-position = Vector2(-30, 40)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetStopper"]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_5dmj6")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
-one_shot = true
-autostart = true
-
-[node name="ResultLabel" type="Label" parent="."]
-offset_left = 303.0
-offset_top = 104.0
-offset_right = 343.0
-offset_bottom = 173.0
-theme_override_font_sizes/font_size = 50
-
-[node name="TimeLabel" type="Label" parent="."]
-offset_left = 392.0
-offset_right = 432.0
-offset_bottom = 23.0
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 1.00186)
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 50
-text = "¡BAILA POR TU VIDA!"
-
-[node name="TransitionTimer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-autostart = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_smykq")
-}
-autoplay = "transition"
-
-[connection signal="body_entered" from="Bullseye" to="." method="_on_bullseye_body_entered"]
-[connection signal="body_exited" from="Bullseye" to="." method="_on_bullseye_body_exited"]
-[connection signal="area_entered" from="TargetStopper" to="TargetStopper" method="_on_area_entered"]
-[connection signal="body_entered" from="TargetStopper" to="Target" method="_on_target_destroyer_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
+[node name="MechanicInstructions" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 306)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_uxain")
+autoplay = "default"
+frame = 1
+frame_progress = 0.169037
