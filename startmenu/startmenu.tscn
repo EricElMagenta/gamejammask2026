@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://startmenu/startmenu.gd" id="1_0b0sx"]
 [ext_resource type="Texture2D" uid="uid://dui3dmexy747a" path="res://assets/inicio.png" id="2_afofu"]
-[ext_resource type="PackedScene" uid="uid://ddradf205mbgq" path="res://level_2/level_2.tscn" id="2_ilepn"]
+[ext_resource type="PackedScene" uid="uid://c4568ccqddg6a" path="res://assets/Scenes/level_1.tscn" id="2_jugf7"]
 
 [node name="Startmenu" type="Node2D"]
 script = ExtResource("1_0b0sx")
-next_scene = ExtResource("2_ilepn")
+next_scene = ExtResource("2_jugf7")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(320, 180)

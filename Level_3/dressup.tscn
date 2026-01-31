@@ -25,10 +25,10 @@ offset_bottom = 41.0
 text = "Contador: "
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 331.0
-offset_top = 87.0
-offset_right = 916.0
-offset_bottom = 167.0
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 625.0
+offset_bottom = 136.0
 theme = SubResource("Theme_t7il4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
@@ -38,6 +38,13 @@ theme_override_font_sizes/bold_italics_font_size = 1
 bbcode_enabled = true
 text = "[b]¡Condición cumplida![/b]"
 
+[node name="TextoPerder" type="RichTextLabel" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 1
+bbcode_enabled = true
+text = "[b]¡PERDEDOR![/b]"
+
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
 
@@ -46,3 +53,16 @@ position = Vector2(-14, -54)
 scale = Vector2(0.541391, 0.461369)
 texture = ExtResource("4_unsrb")
 centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="TimeLabel" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 39.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -21,4 +21,5 @@ func _process(delta):
 
 func _on_area_entered(area):
 	if area.name == "Bolsa":
+		area.score += 1
 		queue_free();
