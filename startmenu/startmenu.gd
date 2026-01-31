@@ -1,12 +1,12 @@
 extends Node2D
 
-
-@export var game_intro:PackedScene
+@export var next_scene:PackedScene
+@onready var bg = $Background
 
 func _ready():
-	pass 
+	bg.frame = 0 
 
 
 func _on_button_pressed():
-	if game_intro: get_tree().call_deferred("change_to_packed_scene", game_intro)
-	else: print("no hay nada")
+	bg.frame = 1
+
