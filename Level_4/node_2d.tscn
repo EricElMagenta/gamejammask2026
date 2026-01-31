@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=8 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
 [ext_resource type="Texture2D" uid="uid://bcfbgcta68uf6" path="res://assets/dance_left.png" id="2_lwtps"]
 [ext_resource type="Texture2D" uid="uid://bl3pjpf6hdpyu" path="res://assets/dance_right.png" id="3_aqpwy"]
+[ext_resource type="Texture2D" uid="uid://jti3vnxtvv7v" path="res://assets/Sprites/espacio.png" id="4_tcly0"]
+[ext_resource type="Texture2D" uid="uid://dsvi4khdgvx40" path="res://assets/Sprites/espacio2.png" id="5_3pq4f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -15,6 +17,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"dance",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxain"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tcly0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3pq4f")
+}],
+"loop": true,
+"name": &"default",
 "speed": 2.0
 }]
 
@@ -36,3 +52,11 @@ sprite_frames = SubResource("SpriteFrames_7xll4")
 animation = &"dance"
 frame = 1
 frame_progress = 0.969134
+
+[node name="MechanicInstructions" type="AnimatedSprite2D" parent="."]
+position = Vector2(552, 306)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_uxain")
+autoplay = "default"
+frame = 1
+frame_progress = 0.169037
