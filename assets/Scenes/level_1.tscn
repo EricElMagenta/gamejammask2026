@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4568ccqddg6a"]
+
+[ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Sprites/Bolsa.png" id="1_ggigl"]
+[ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Sprites/Item.png" id="2_np4kn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evs8o"]
+size = Vector2(32, 32)
+
+[node name="Main" type="Node2D"]
+
+[node name="Bolsa" type="Area2D" parent="."]
+position = Vector2(316, 173)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
+texture = ExtResource("1_ggigl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bolsa"]
+shape = SubResource("RectangleShape2D_4e7u4")
+
+[node name="Item" type="Area2D" parent="."]
+position = Vector2(96, 174)
+
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+texture = ExtResource("2_np4kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="Item2" type="Area2D" parent="."]
+position = Vector2(317, 293)
+
+[node name="Sprite2D" type="Sprite2D" parent="Item2"]
+texture = ExtResource("2_np4kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
+shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="Item3" type="Area2D" parent="."]
+position = Vector2(496, 176)
+
+[node name="Sprite2D" type="Sprite2D" parent="Item3"]
+texture = ExtResource("2_np4kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
+shape = SubResource("RectangleShape2D_evs8o")
