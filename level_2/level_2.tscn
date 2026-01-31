@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=9 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
 [ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
 [ext_resource type="PackedScene" uid="uid://cocot8x4dtxs" path="res://level_2/dragable_piece.tscn" id="2_ryf2p"]
 [ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
+[ext_resource type="Texture2D" uid="uid://dfw67n4bbwp3d" path="res://assets/desplazamientodemausse.png" id="5_adiec"]
 
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
@@ -95,6 +96,11 @@ modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_5iwyr")
 next_scene = ExtResource("2_o6gs2")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 646.0
+offset_bottom = 369.0
+color = Color(0.533333, 0.486275, 0.486275, 1)
+
 [node name="DragablePiece" parent="." instance=ExtResource("2_ryf2p")]
 position = Vector2(272, 176)
 
@@ -132,16 +138,20 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Desplazamientodemausse" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(324, 234)
+texture = ExtResource("5_adiec")
+
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -204.5
+offset_top = -101.0
+offset_right = 204.5
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=18 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Script" path="res://Level_4/node_2d.gd" id="1_p0cus"]
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dvb3g3bxt6gxk" path="res://assets/bullseye_square.png" id="4_oawxf"]
 [ext_resource type="Texture2D" uid="uid://djf5lxhu5bre4" path="res://assets/target_square.png" id="5_jlsb4"]
 [ext_resource type="Script" path="res://Level_4/character_body_2d.gd" id="5_xnqte"]
+[ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="9_dtkkn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -91,6 +92,17 @@ _data = {
 "RESET": SubResource("Animation_kqetc"),
 "transition": SubResource("Animation_3sq21")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_abmcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_dtkkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Dance" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
@@ -226,16 +238,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -246.0
+offset_top = -107.0
+offset_right = 246.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00186)
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "¡BAILA POR TU VIDA!"
+
+[node name="Espacio" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(308, 249)
+scale = Vector2(0.63253, 0.63253)
+texture = ExtResource("9_dtkkn")
 
 [node name="TransitionTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -247,6 +264,12 @@ libraries = {
 "": SubResource("AnimationLibrary_smykq")
 }
 autoplay = "transition"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(544, 306)
+scale = Vector2(0.311245, 0.311245)
+sprite_frames = SubResource("SpriteFrames_abmcr")
+autoplay = "default"
 
 [connection signal="body_entered" from="Bullseye" to="." method="_on_bullseye_body_entered"]
 [connection signal="body_exited" from="Bullseye" to="." method="_on_bullseye_body_exited"]

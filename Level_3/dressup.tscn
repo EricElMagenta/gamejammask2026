@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=13 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
 [ext_resource type="PackedScene" uid="uid://d17k0bqafnn6k" path="res://Level_4/node_2d.tscn" id="2_y8aqe"]
 [ext_resource type="Script" path="res://Level_3/sprite_2d.gd" id="3_235pm"]
 [ext_resource type="Texture2D" uid="uid://b517ssm8o6xtm" path="res://assets/fondo_tirana01.jpg" id="4_unsrb"]
+[ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="6_rmar4"]
+[ext_resource type="Texture2D" uid="uid://brlvh8v2dvf86" path="res://assets/espacio2.png" id="7_c5ex8"]
 
 [sub_resource type="Theme" id="Theme_t7il4"]
 default_font_size = 50
@@ -94,6 +96,20 @@ _data = {
 "transition": SubResource("Animation_ju3sp")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_qa8u8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rmar4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c5ex8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_hy6w5")
@@ -163,20 +179,32 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -258.0
+offset_top = -131.0
+offset_right = 258.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "¡PONTE LA MÁSCARA!"
 
+[node name="Espacio" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(308, 228)
+scale = Vector2(0.63253, 0.63253)
+texture = ExtResource("6_rmar4")
+
 [node name="TransitionTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(544, 306)
+scale = Vector2(0.311245, 0.311245)
+sprite_frames = SubResource("SpriteFrames_qa8u8")
+autoplay = "default"
+frame_progress = 0.010202
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
