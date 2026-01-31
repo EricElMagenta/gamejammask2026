@@ -4,6 +4,7 @@ var contador = 0
 var puntos_victoria = 10
 var success = false
 var failure = false
+var can_dress = false
 
 @export var next_scene:PackedScene
 @onready var label = $Label # Ajusta $Label al nombre de tu nodo Label
@@ -19,7 +20,7 @@ func _ready():
 func _process(_delta):
 	time_label.text = str(round(timer.time_left))
 	# Detecta si la tecla se presiona solo una vez por pulsación
-	if Input.is_action_just_pressed("presionar_tecla") && !failure:
+	if Input.is_action_just_pressed("presionar_tecla") && !failure && can_dress:
 		contador += 1
 		actualizar_contador()
 		condicion_victoria()
@@ -54,3 +55,8 @@ func actualizar_contador():
 
 func _on_timer_timeout():
 	mostrar_texto_perder()
+
+
+func _on_transition_timer_timeout():
+	can_dress = true
+	timer.start()

@@ -32,3 +32,7 @@ func show_results():
 
 func _on_timer_timeout():
 	show_results()
+
+
+func _on_transition_timer_timeout():
+	timer.start()

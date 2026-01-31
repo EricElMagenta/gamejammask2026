@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var bg = $Background
 
-const GOOD_ENDING_SCORE = 3
+const GOOD_ENDING_SCORE = 4
 
 func _ready():
 	if GameManager.total_score == GOOD_ENDING_SCORE: bg.frame = 0

@@ -1,17 +1,109 @@
-[gd_scene load_steps=7 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=10 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
-[ext_resource type="PackedScene" uid="uid://ybvgj21mfde6" path="res://ending/end.tscn" id="2_8wc8r"]
+[ext_resource type="PackedScene" uid="uid://d17k0bqafnn6k" path="res://Level_4/node_2d.tscn" id="2_y8aqe"]
 [ext_resource type="Script" path="res://Level_3/sprite_2d.gd" id="3_235pm"]
 [ext_resource type="Texture2D" uid="uid://b517ssm8o6xtm" path="res://assets/fondo_tirana01.jpg" id="4_unsrb"]
 
 [sub_resource type="Theme" id="Theme_t7il4"]
 default_font_size = 50
 
+[sub_resource type="Animation" id="Animation_b1sdo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ju3sp"]
+resource_name = "transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.56667, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nx41a"]
+_data = {
+"RESET": SubResource("Animation_b1sdo"),
+"transition": SubResource("Animation_ju3sp")
+}
+
 [node name="Node2D" type="Node2D"]
+modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_hy6w5")
-next_scene = ExtResource("2_8wc8r")
+next_scene = ExtResource("2_y8aqe")
+
+[node name="BGImage" type="Sprite2D" parent="."]
+position = Vector2(-14, -54)
+scale = Vector2(0.541391, 0.461369)
+texture = ExtResource("4_unsrb")
+centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(320, 180)
@@ -47,19 +139,9 @@ theme_override_font_sizes/bold_italics_font_size = 1
 bbcode_enabled = true
 text = "[b]¡PERDEDOR![/b]"
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -100
-
-[node name="BGImage" type="Sprite2D" parent="Background"]
-position = Vector2(-14, -54)
-scale = Vector2(0.541391, 0.461369)
-texture = ExtResource("4_unsrb")
-centered = false
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_left = 296.0
@@ -67,4 +149,34 @@ offset_top = 16.0
 offset_right = 336.0
 offset_bottom = 39.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nx41a")
+}
+autoplay = "transition"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "¡PONTE LA MÁSCARA!"
+
+[node name="TransitionTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
