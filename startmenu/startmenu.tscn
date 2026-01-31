@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://8xuxhpu56dkw"]
+
+[ext_resource type="Script" path="res://startmenu/startmenu.gd" id="1_0b0sx"]
+[ext_resource type="Texture2D" uid="uid://dui3dmexy747a" path="res://assets/inicio.png" id="2_afofu"]
+
+[node name="Startmenu" type="Node2D"]
+script = ExtResource("1_0b0sx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_afofu")
+hframes = 2
+
+[node name="Title" type="Label" parent="Background"]
+offset_left = -42.7903
+offset_top = -145.227
+offset_right = 14.2097
+offset_bottom = -122.227
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "TÍTULO"
+
+[node name="Button" type="Button" parent="Background"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -99.0
+offset_top = 10.0
+offset_right = 112.0
+offset_bottom = 69.0
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
