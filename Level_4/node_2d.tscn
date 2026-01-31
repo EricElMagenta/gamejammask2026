@@ -35,6 +35,7 @@ size = Vector2(53.5, 110)
 layer = -100
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0.906005, 0.740849, 0.511951, 1)
 position = Vector2(-12, -20)
 scale = Vector2(0.543874, 0.444812)
 texture = ExtResource("1_v3lqp")
