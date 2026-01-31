@@ -13,9 +13,10 @@ size = Vector2(32, 32)
 
 [node name="Main" type="Node2D"]
 
-[node name="Bolsa" type="Area2D" parent="." groups=["bolsa"]]
+[node name="Bolsa" type="Area2D" parent="." node_paths=PackedStringArray("label_contador") groups=["bolsa"]]
 position = Vector2(316, 173)
 script = ExtResource("1_y0gvf")
+label_contador = NodePath("../CanvasLayer/Label")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
 texture = ExtResource("1_ggigl")
@@ -54,6 +55,14 @@ texture = ExtResource("2_np4kn")
 shape = SubResource("RectangleShape2D_evs8o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 158.0
+offset_bottom = 49.0
+scale = Vector2(2, 2)
+text = "0"
 
 [connection signal="area_entered" from="Item" to="Item" method="_on_area_entered"]
 [connection signal="area_entered" from="Item2" to="Item2" method="_on_area_entered"]
