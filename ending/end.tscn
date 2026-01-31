@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybvgj21mfde6"]
+
+[ext_resource type="Script" path="res://ending/end.gd" id="1_0tcur"]
+[ext_resource type="Texture2D" uid="uid://dyi6qfjqtxw11" path="res://assets/ending_bg.png" id="1_dwxg7"]
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_0tcur")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_dwxg7")
+hframes = 2
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 244.0
+offset_top = 271.0
+offset_right = 390.0
+offset_bottom = 302.0
+text = "VOLVER AL INICIO"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "VOLVER AL INICIO"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
