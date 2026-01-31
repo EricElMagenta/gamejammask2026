@@ -1,60 +1,83 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=13 format=3 uid="uid://c4568ccqddg6a"]
 
 [ext_resource type="Script" path="res://assets/Scenes/level_1/level_1.gd" id="1_qngoe"]
+[ext_resource type="Texture2D" uid="uid://cb8ojjpw46a4f" path="res://assets/Fondo_Juego1.png" id="2_3f6d5"]
 [ext_resource type="Script" path="res://assets/Scenes/level_1/bolsa.gd" id="2_rg555"]
-[ext_resource type="Texture2D" uid="uid://hgxgi17npwe4" path="res://assets/Bolsa.png" id="3_fc64m"]
+[ext_resource type="Texture2D" uid="uid://wu2iu5ffn617" path="res://assets/Caja.png" id="3_os4ih"]
 [ext_resource type="Script" path="res://assets/Scenes/level_1/DraggableItem.gd" id="4_thl65"]
-[ext_resource type="Texture2D" uid="uid://hqssot2vps20" path="res://assets/Item.png" id="5_mkwy6"]
+[ext_resource type="Texture2D" uid="uid://b8dwka1wqsf3p" path="res://assets/acrilicos.png" id="5_5a837"]
+[ext_resource type="Texture2D" uid="uid://cluj685qjee8l" path="res://assets/Pegamento.png" id="6_2o48y"]
+[ext_resource type="Texture2D" uid="uid://cas8ypqpl60vm" path="res://assets/scotch.png" id="7_wyo7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
-size = Vector2(32, 32)
+size = Vector2(86.7185, 65.4746)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evs8o"]
-size = Vector2(32, 32)
+size = Vector2(80.5, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu5x0"]
+size = Vector2(28, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72k0r"]
+size = Vector2(50, 39)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qngoe")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_3f6d5")
+centered = false
+
 [node name="Bolsa" type="Area2D" parent="." node_paths=PackedStringArray("label_contador") groups=["bolsa"]]
-position = Vector2(316, 173)
+position = Vector2(309, 168)
+scale = Vector2(1.4, 1.44)
 script = ExtResource("2_rg555")
 label_contador = NodePath("../CanvasLayer/LabelItems")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bolsa"]
-texture = ExtResource("3_fc64m")
+scale = Vector2(0.365759, 0.375635)
+texture = ExtResource("3_os4ih")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bolsa"]
+position = Vector2(-0.357147, 1.52588e-05)
+scale = Vector2(1.02961, 1.03942)
 shape = SubResource("RectangleShape2D_4e7u4")
 
 [node name="Item" type="Area2D" parent="."]
-position = Vector2(97, 128)
+position = Vector2(103, 163)
 script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item"]
-texture = ExtResource("5_mkwy6")
+texture = ExtResource("5_5a837")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_evs8o")
 
 [node name="Item2" type="Area2D" parent="."]
-position = Vector2(96, 238)
+position = Vector2(310, 308)
 script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item2"]
-texture = ExtResource("5_mkwy6")
+position = Vector2(3, 1)
+scale = Vector2(0.46, 0.441176)
+texture = ExtResource("6_2o48y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
-shape = SubResource("RectangleShape2D_evs8o")
+position = Vector2(3, 1)
+shape = SubResource("RectangleShape2D_mu5x0")
 
 [node name="Item3" type="Area2D" parent="."]
-position = Vector2(207, 277)
+position = Vector2(516, 174)
 script = ExtResource("4_thl65")
 
 [node name="Sprite2D" type="Sprite2D" parent="Item3"]
-texture = ExtResource("5_mkwy6")
+texture = ExtResource("7_wyo7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item3"]
-shape = SubResource("RectangleShape2D_evs8o")
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_72k0r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

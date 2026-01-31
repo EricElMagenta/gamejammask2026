@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hgxgi17npwe4"
-path="res://.godot/imported/Bolsa.png-f0dc4d67b2f422797b376803d8262f98.ctex"
+uid="uid://dnsedsly1ol1j"
+path="res://.godot/imported/Notlabubu.png-95ba347720902dbc71f8b9f40df98da4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bolsa.png"
-dest_files=["res://.godot/imported/Bolsa.png-f0dc4d67b2f422797b376803d8262f98.ctex"]
+source_file="res://assets/Notlabubu.png"
+dest_files=["res://.godot/imported/Notlabubu.png-95ba347720902dbc71f8b9f40df98da4.ctex"]
 
 [params]
 
