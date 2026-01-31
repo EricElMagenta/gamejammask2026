@@ -80,5 +80,4 @@ script = ExtResource("7_pgxvq")
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_5dmj6")
 
-[connection signal="area_entered" from="TargetDestroyer" to="TargetDestroyer" method="_on_area_entered"]
 [connection signal="body_entered" from="TargetDestroyer" to="Target" method="_on_target_destroyer_body_entered"]
