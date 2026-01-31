@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://8xuxhpu56dkw"]
+
+[ext_resource type="Script" path="res://startmenu/startmenu.gd" id="1_0b0sx"]
+[ext_resource type="Texture2D" uid="uid://dcixudl6kjam7" path="res://assets/background_placeholder.png" id="2_hwsxh"]
+
+[node name="Startmenu" type="Node2D"]
+script = ExtResource("1_0b0sx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(304, 208)
+scale = Vector2(0.771203, 0.771204)
+texture = ExtResource("2_hwsxh")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 32.0
+offset_right = 257.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "TÍTULO"
+
+[node name="Creditos" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 168.0
+offset_right = 125.0
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "CRÉDITOS
+(nombres : rol)
+"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 296.0
+offset_top = 272.0
+offset_right = 344.0
+offset_bottom = 296.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "JUGAR"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
