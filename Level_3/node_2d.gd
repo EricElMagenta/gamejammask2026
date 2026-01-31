@@ -11,7 +11,7 @@ var can_dress = false
 @onready var label_victoria = $MarginContainer/RichTextLabel # Label enriquecido
 @onready var textura_sprite = $Sprite2D
 @onready var texto_perder = $MarginContainer/TextoPerder
-@onready var time_label = $TimeLabel
+@onready var time_label = $TimerContainer/RichTextLabel
 @onready var timer = $Timer
 
 func _ready():

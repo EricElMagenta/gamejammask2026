@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=11 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
 [ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
 [ext_resource type="PackedScene" uid="uid://cocot8x4dtxs" path="res://level_2/dragable_piece.tscn" id="2_ryf2p"]
 [ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
 [ext_resource type="Texture2D" uid="uid://dfw67n4bbwp3d" path="res://assets/desplazamientodemausse.png" id="5_adiec"]
+[ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="6_jk4oc"]
 
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
@@ -91,6 +92,20 @@ _data = {
 "transition": SubResource("Animation_ju3sp")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_falft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jk4oc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_adiec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="Level2" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_5iwyr")
@@ -138,9 +153,13 @@ autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Desplazamientodemausse" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(324, 234)
-texture = ExtResource("5_adiec")
+[node name="MechanicSprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(236, 160)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_falft")
+autoplay = "default"
+frame_progress = 0.728526
+centered = false
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -157,6 +176,13 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "¡UNE LAS PIEZAS!"
+
+[node name="MechanicSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(544, 306)
+scale = Vector2(0.311245, 0.311245)
+sprite_frames = SubResource("SpriteFrames_falft")
+autoplay = "default"
+frame_progress = 0.726046
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
