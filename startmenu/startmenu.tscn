@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8xuxhpu56dkw"]
+[gd_scene load_steps=5 format=3 uid="uid://8xuxhpu56dkw"]
 
 [ext_resource type="Script" path="res://startmenu/startmenu.gd" id="1_0b0sx"]
-[ext_resource type="Texture2D" uid="uid://dui3dmexy747a" path="res://assets/inicio.png" id="2_afofu"]
 [ext_resource type="PackedScene" uid="uid://c4568ccqddg6a" path="res://assets/Scenes/level_1.tscn" id="2_jugf7"]
+[ext_resource type="Texture2D" uid="uid://bb3c713s6skiu" path="res://assets/FondoJuegoMain.png" id="3_gr8wq"]
+[ext_resource type="FontFile" uid="uid://d2ygynv6dgm51" path="res://assets/PressStart2P.ttf" id="4_o3yw6"]
 
 [node name="Startmenu" type="Node2D"]
 script = ExtResource("1_0b0sx")
@@ -10,16 +11,19 @@ next_scene = ExtResource("2_jugf7")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(320, 180)
-texture = ExtResource("2_afofu")
+texture = ExtResource("3_gr8wq")
 hframes = 2
 
 [node name="Title" type="Label" parent="Background"]
-offset_left = -57.0
-offset_top = -145.227
-offset_right = 65.0
-offset_bottom = -122.227
+offset_left = -184.0
+offset_top = -160.0
+offset_right = 183.0
+offset_bottom = -95.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "PRISA TIRÁNICA"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="StartButton" type="Button" parent="Background"]
 self_modulate = Color(1, 1, 1, 0)
@@ -36,6 +40,21 @@ offset_top = 79.0
 offset_right = 10.0
 offset_bottom = 137.0
 disabled = true
+
+[node name="HistoriaLabel" type="Label" parent="Background"]
+visible = false
+offset_left = -178.0
+offset_top = -85.0
+offset_right = 189.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_o3yw6")
+theme_override_font_sizes/font_size = 16
+text = "[Domingo, 22:00 horas]
+El silencio de la noche es quebrado por un lamento desolador…
+¡CHUUUUUCHA! ¡La máscara para la presentación de Tirana mañana!"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Background/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Background/NextGameBtn" to="." method="_on_next_game_btn_pressed"]
