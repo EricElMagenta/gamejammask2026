@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buk51jax2gxuj"]
+[gd_scene load_steps=17 format=3 uid="uid://buk51jax2gxuj"]
 
 [ext_resource type="Script" path="res://Level_3/node_2d.gd" id="1_hy6w5"]
 [ext_resource type="Texture2D" uid="uid://cffge0ssrch7k" path="res://assets/idle.png" id="2_2yma6"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="6_q3lxt"]
 [ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="6_rmar4"]
 [ext_resource type="Texture2D" uid="uid://brlvh8v2dvf86" path="res://assets/espacio2.png" id="7_c5ex8"]
+[ext_resource type="Texture2D" uid="uid://5pbx6klmm7go" path="res://assets/Bien.png" id="9_vskyp"]
+[ext_resource type="Texture2D" uid="uid://b785lsfmotlny" path="res://assets/mal.png" id="10_rjil3"]
 
 [sub_resource type="Theme" id="Theme_t7il4"]
 default_font_size = 50
@@ -225,6 +227,16 @@ scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_qa8u8")
 autoplay = "default"
 frame_progress = 0.010202
+
+[node name="OK" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("9_vskyp")
+
+[node name="MAL" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("10_rjil3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

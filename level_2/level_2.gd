@@ -37,9 +37,15 @@ func show_results():
 	var mean_score = get_mean_score()
 	if mean_score > MIN_SCORE_REQUIRED: 
 		result_label.text = "ÉXITO"
+		$OK.visible = true
 		AudioManager.play_making_mask()
 		GameManager.total_score += 1
-	else: result_label.text = "¡PERDEDOR!"
+
+
+	else: 
+		result_label.text = "¡PERDEDOR!"
+		$MAL.visible = true
+
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
 

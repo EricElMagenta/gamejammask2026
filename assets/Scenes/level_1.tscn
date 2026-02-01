@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=25 format=3 uid="uid://c4568ccqddg6a"]
 
 [ext_resource type="Script" path="res://assets/Scenes/level_1.gd" id="1_kla56"]
 [ext_resource type="PackedScene" uid="uid://ddradf205mbgq" path="res://level_2/level_2.tscn" id="2_ocdra"]
@@ -10,7 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="7_pbvbb"]
 [ext_resource type="Texture2D" uid="uid://d2dt30fy8tvv8" path="res://assets/scotch.png" id="8_swnxl"]
 [ext_resource type="Texture2D" uid="uid://b3ebl3f2daanw" path="res://assets/acrilicos.png" id="9_6s2bk"]
+[ext_resource type="Texture2D" uid="uid://btcb4q2rudfl6" path="res://assets/Notlabubu.png" id="10_hj3wx"]
+[ext_resource type="Texture2D" uid="uid://bxr0eca0a6smh" path="res://assets/tijera.png" id="10_koo0q"]
 [ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="11_h6kv6"]
+[ext_resource type="Texture2D" uid="uid://cb2wikccye54o" path="res://assets/chocolate.png" id="12_1856e"]
+[ext_resource type="Texture2D" uid="uid://5pbx6klmm7go" path="res://assets/Bien.png" id="15_15gtb"]
+[ext_resource type="Texture2D" uid="uid://b785lsfmotlny" path="res://assets/mal.png" id="16_jsiij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
 size = Vector2(128, 104)
@@ -139,7 +144,7 @@ position = Vector2(4, -1)
 shape = SubResource("RectangleShape2D_4e7u4")
 
 [node name="Item" type="Area2D" parent="."]
-position = Vector2(520, 232)
+position = Vector2(480, 153)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
@@ -158,7 +163,7 @@ offset_right = 17.0
 offset_bottom = 17.0
 
 [node name="Item2" type="Area2D" parent="."]
-position = Vector2(112, 104)
+position = Vector2(435, 85)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
@@ -176,7 +181,7 @@ offset_right = 17.0
 offset_bottom = 17.0
 
 [node name="Item3" type="Area2D" parent="."]
-position = Vector2(184, 296)
+position = Vector2(202, 63)
 script = ExtResource("2_rkbga")
 metadata/_edit_group_ = true
 
@@ -187,6 +192,64 @@ texture = ExtResource("9_6s2bk")
 shape = SubResource("RectangleShape2D_evs8o")
 
 [node name="Button" type="Button" parent="Item3"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 17.0
+
+[node name="Item5" type="Area2D" parent="."]
+position = Vector2(198, 283)
+script = ExtResource("2_rkbga")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Item5"]
+texture = ExtResource("10_koo0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item5"]
+shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="Button" type="Button" parent="Item5"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 17.0
+
+[node name="Item4" type="Area2D" parent="."]
+position = Vector2(127, 162)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_rkbga")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Item4"]
+texture = ExtResource("10_hj3wx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item4"]
+shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="Button" type="Button" parent="Item4"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -17.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 17.0
+
+[node name="Item6" type="Area2D" parent="."]
+position = Vector2(420, 289)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_rkbga")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Item6"]
+texture = ExtResource("12_1856e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item6"]
+shape = SubResource("RectangleShape2D_evs8o")
+
+[node name="Button" type="Button" parent="Item6"]
 modulate = Color(1, 1, 1, 0)
 offset_left = -17.0
 offset_top = -16.0
@@ -233,6 +296,16 @@ scale = Vector2(0.7, 0.7)
 skew = 0.0296706
 texture = ExtResource("11_h6kv6")
 
+[node name="OK" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("15_15gtb")
+
+[node name="MAL" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("16_jsiij")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]
 [connection signal="area_entered" from="Item" to="Item" method="_on_area_entered"]
@@ -244,3 +317,12 @@ texture = ExtResource("11_h6kv6")
 [connection signal="area_entered" from="Item3" to="Item3" method="_on_area_entered"]
 [connection signal="button_down" from="Item3/Button" to="Item3" method="_on_button_button_down"]
 [connection signal="button_up" from="Item3/Button" to="Item3" method="_on_button_button_up"]
+[connection signal="area_entered" from="Item5" to="Item5" method="_on_area_entered"]
+[connection signal="button_down" from="Item5/Button" to="Item5" method="_on_button_button_down"]
+[connection signal="button_up" from="Item5/Button" to="Item5" method="_on_button_button_up"]
+[connection signal="area_entered" from="Item4" to="Item4" method="_on_area_entered"]
+[connection signal="button_down" from="Item4/Button" to="Item4" method="_on_button_button_down"]
+[connection signal="button_up" from="Item4/Button" to="Item4" method="_on_button_button_up"]
+[connection signal="area_entered" from="Item6" to="Item6" method="_on_area_entered"]
+[connection signal="button_down" from="Item6/Button" to="Item6" method="_on_button_button_down"]
+[connection signal="button_up" from="Item6/Button" to="Item6" method="_on_button_button_up"]

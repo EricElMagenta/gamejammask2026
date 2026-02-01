@@ -7,7 +7,7 @@ extends Node2D
 @onready var result_label = $ResultLabel
 @onready var time_label = $TimerContainer/RichTextLabel
 
-const SCORE_REQUIRED = 3
+const SCORE_REQUIRED = 4
 
 var showed_results = false
 
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(_delta):
 	time_label.text = str(round(timer.time_left))
-	if bolsa.score == 3 && !showed_results: show_results()
+	if bolsa.score == SCORE_REQUIRED && !showed_results: show_results()
 
 func show_results():
 	showed_results = true
@@ -28,9 +28,12 @@ func show_results():
 
 	if bolsa.score == SCORE_REQUIRED: 
 		GameManager.total_score += 1
+		$OK.visible = true
 		result_label.text = "ÉXITO"
 
-	else: result_label.text = "¡PERDEDOR!"
+	else: 
+		$MAL.visible = true
+		result_label.text = "¡PERDEDOR!"
 
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)

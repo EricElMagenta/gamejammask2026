@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=23 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Script" path="res://Level_4/node_2d.gd" id="1_p0cus"]
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="9_dtkkn"]
 [ext_resource type="Texture2D" uid="uid://brlvh8v2dvf86" path="res://assets/espacio2.png" id="10_qqurj"]
 [ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="11_5hd1d"]
+[ext_resource type="Texture2D" uid="uid://5pbx6klmm7go" path="res://assets/Bien.png" id="12_g5lnh"]
+[ext_resource type="Texture2D" uid="uid://b785lsfmotlny" path="res://assets/mal.png" id="13_k3rsd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -300,6 +302,16 @@ rotation = 0.785398
 scale = Vector2(0.7, 0.7)
 skew = 0.0296706
 texture = ExtResource("11_5hd1d")
+
+[node name="OK" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("12_g5lnh")
+
+[node name="MAL" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("13_k3rsd")
 
 [connection signal="body_entered" from="Bullseye" to="." method="_on_bullseye_body_entered"]
 [connection signal="body_exited" from="Bullseye" to="." method="_on_bullseye_body_exited"]

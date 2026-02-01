@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=16 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
 [ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dfw67n4bbwp3d" path="res://assets/desplazamientodemausse.png" id="5_adiec"]
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="6_jk4oc"]
 [ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="8_48xp4"]
+[ext_resource type="Texture2D" uid="uid://5pbx6klmm7go" path="res://assets/Bien.png" id="9_g16j1"]
+[ext_resource type="Texture2D" uid="uid://b785lsfmotlny" path="res://assets/mal.png" id="10_vw4t3"]
 
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
@@ -209,6 +211,16 @@ rotation = 0.785398
 scale = Vector2(0.7, 0.7)
 skew = 0.0296706
 texture = ExtResource("8_48xp4")
+
+[node name="OK" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("9_g16j1")
+
+[node name="MAL" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(328, 168)
+texture = ExtResource("10_vw4t3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

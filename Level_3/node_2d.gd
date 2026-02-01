@@ -30,7 +30,8 @@ func _process(_delta):
 
 func mostrar_texto_victoria():
 	timer.stop()
-	# label_victoria.visible = true # Hace visible el nodo
+	$OK.visible = true
+# label_victoria.visible = true # Hace visible el nodo
 	#label_victoria.text = "¡Condición cumplida!" # Cambia el texto si es necesario
 	textura_sprite.success = true
 	GameManager.total_score += 1
@@ -43,6 +44,7 @@ func mostrar_texto_perder():
 	# texto_perder.visible = true
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
+	$MAL.visible = true
 
 func condicion_victoria():	
 	if contador == puntos_victoria:

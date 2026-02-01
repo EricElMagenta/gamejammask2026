@@ -37,8 +37,12 @@ func show_results():
 
 	if score >= WINNING_SCORE: 
 		result_label.text = "ÉXITO"
+		$OK.visible = true
 		GameManager.total_score += 1
-	else: result_label.text = "¡PERDEDOR!"
+	else: 
+		result_label.text = "¡PERDEDOR!"
+		$MAL.visible = true
+
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
 
