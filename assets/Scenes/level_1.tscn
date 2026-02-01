@@ -335,6 +335,7 @@ skew = 0.0296706
 texture = ExtResource("15_w57rg")
 
 [node name="BienOMal" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-486, -268)
 scale = Vector2(2.10769, 2.01149)
 texture = ExtResource("16_atphp")

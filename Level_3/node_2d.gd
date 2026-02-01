@@ -30,7 +30,6 @@ func _process(_delta):
 
 func mostrar_texto_victoria():
 	timer.stop()
-	label_victoria.visible = true # Hace visible el nodo
 	#label_victoria.text = "¡Condición cumplida!" # Cambia el texto si es necesario
 	textura_sprite.success = true
 	bien_o_mal.cambiarTextura(true)

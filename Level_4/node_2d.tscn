@@ -295,6 +295,7 @@ one_shot = true
 autostart = true
 
 [node name="ResultLabel" type="Label" parent="."]
+visible = false
 offset_left = 303.0
 offset_top = 104.0
 offset_right = 343.0
@@ -302,6 +303,7 @@ offset_bottom = 173.0
 theme_override_font_sizes/font_size = 50
 
 [node name="TimeLabel" type="Label" parent="."]
+visible = false
 offset_left = 392.0
 offset_right = 432.0
 offset_bottom = 23.0
