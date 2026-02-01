@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=16 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
 [ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
 [ext_resource type="Texture2D" uid="uid://dfw67n4bbwp3d" path="res://assets/desplazamientodemausse.png" id="5_adiec"]
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="6_jk4oc"]
+[ext_resource type="Texture2D" uid="uid://bsqg7tgr25rb0" path="res://assets/Bien.png" id="8_p8lqg"]
+[ext_resource type="Script" path="res://assets/Scenes/bien_o_mal.gd" id="9_7u2tr"]
+[ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="10_issgk"]
 
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
@@ -107,6 +110,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Theme" id="Theme_tac4q"]
+default_font_size = 30
+
 [node name="Level2" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_5iwyr")
@@ -185,6 +191,35 @@ scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_falft")
 autoplay = "default"
 frame_progress = 0.696307
+
+[node name="BienOMal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-486, -268)
+scale = Vector2(2.10769, 2.01149)
+texture = ExtResource("8_p8lqg")
+centered = false
+offset = Vector2(320, 180)
+script = ExtResource("9_7u2tr")
+
+[node name="TimerContainer" type="MarginContainer" parent="."]
+offset_left = 42.0
+offset_top = 237.0
+offset_right = 82.0
+offset_bottom = 280.0
+scale = Vector2(2.28, 2.12)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TimerContainer"]
+layout_mode = 2
+theme = SubResource("Theme_tac4q")
+text = "6"
+
+[node name="Sprite2D" type="Sprite2D" parent="TimerContainer"]
+show_behind_parent = true
+position = Vector2(10.0877, 21.6981)
+rotation = 0.785398
+scale = Vector2(0.7, 0.7)
+skew = 0.0296706
+texture = ExtResource("10_issgk")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var time = $TimerContainer/RichTextLabel
 @onready var result_label = $ResultLabel
+@onready var bien_o_mal = $BienOMal
 
 const SCORE_REQUIRED = 4
 
@@ -27,9 +28,12 @@ func show_results():
 
 	if bolsa.score == SCORE_REQUIRED: 
 		GameManager.total_score += 1
-		result_label.text = "ÉXITO"
+		#result_label.text = "ÉXITO"
+		bien_o_mal.cambiarTextura(true)
 
-	else: result_label.text = "¡PERDEDOR!"
+	else: 
+		#result_label.text = "¡PERDEDOR!"
+		bien_o_mal.cambiarTextura(false)
 
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)

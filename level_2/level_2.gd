@@ -3,13 +3,15 @@ extends Node2D
 @export var next_scene:PackedScene
 @export var n_areas := 1
 
-@onready var time = %Time
+@onready var time = $TimerContainer/RichTextLabel
 @onready var timer = $Timer
 @onready var result_label = $ResultLabel
 
 @onready var dragable_piece = $DragablePiece
 
 @onready var fillable_area = $FillableArea
+
+@onready var bien_o_mal = $BienOMal
 
 const MIN_SCORE_REQUIRED = 80
 var has_won = false
@@ -34,9 +36,12 @@ func show_results():
 
 	var mean_score = get_mean_score()
 	if mean_score > MIN_SCORE_REQUIRED: 
-		result_label.text = "ÉXITO"
+		#result_label.text = "ÉXITO"
+		bien_o_mal.cambiarTextura(true)
 		GameManager.total_score += 1
-	else: result_label.text = "¡PERDEDOR!"
+	else: 
+		#result_label.text = "¡PERDEDOR!"
+		bien_o_mal.cambiarTextura(false)
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
 

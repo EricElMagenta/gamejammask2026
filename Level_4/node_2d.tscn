@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=21 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Script" path="res://Level_4/node_2d.gd" id="1_p0cus"]
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Level_4/character_body_2d.gd" id="5_xnqte"]
 [ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="9_dtkkn"]
 [ext_resource type="Texture2D" uid="uid://brlvh8v2dvf86" path="res://assets/espacio2.png" id="10_qqurj"]
+[ext_resource type="Texture2D" uid="uid://bsqg7tgr25rb0" path="res://assets/Bien.png" id="11_eial3"]
+[ext_resource type="Script" path="res://assets/Scenes/bien_o_mal.gd" id="12_0bem2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -344,6 +346,15 @@ position = Vector2(544, 306)
 scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_x0abx")
 autoplay = "default"
+
+[node name="BienOMal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-486, -268)
+scale = Vector2(2.10769, 2.01149)
+texture = ExtResource("11_eial3")
+centered = false
+offset = Vector2(320, 180)
+script = ExtResource("12_0bem2")
 
 [connection signal="body_entered" from="Bullseye" to="." method="_on_bullseye_body_entered"]
 [connection signal="body_exited" from="Bullseye" to="." method="_on_bullseye_body_exited"]

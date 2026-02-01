@@ -13,6 +13,7 @@ var can_dress = false
 @onready var texto_perder = $MarginContainer/TextoPerder
 @onready var time_label = $TimerContainer/RichTextLabel
 @onready var timer = $Timer
+@onready var bien_o_mal = $BienOMal
 
 func _ready():
 	time_label.text = str(timer.wait_time)
@@ -32,6 +33,7 @@ func mostrar_texto_victoria():
 	label_victoria.visible = true # Hace visible el nodo
 	#label_victoria.text = "¡Condición cumplida!" # Cambia el texto si es necesario
 	textura_sprite.success = true
+	bien_o_mal.cambiarTextura(true)
 	GameManager.total_score += 1
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
@@ -39,7 +41,8 @@ func mostrar_texto_victoria():
 func mostrar_texto_perder():
 	timer.stop()
 	failure = true
-	texto_perder.visible = true
+	#texto_perder.visible = true
+	bien_o_mal.cambiarTextura(false)
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
 
