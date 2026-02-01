@@ -21,6 +21,7 @@ func _process(_delta):
 	time_label.text = str(round(timer.time_left))
 	# Detecta si la tecla se presiona solo una vez por pulsación
 	if Input.is_action_just_pressed("presionar_tecla") && !failure && can_dress:
+		AudioManager.play_put_mask()
 		contador += 1
 		actualizar_contador()
 		condicion_victoria()
@@ -29,7 +30,7 @@ func _process(_delta):
 
 func mostrar_texto_victoria():
 	timer.stop()
-	label_victoria.visible = true # Hace visible el nodo
+	# label_victoria.visible = true # Hace visible el nodo
 	#label_victoria.text = "¡Condición cumplida!" # Cambia el texto si es necesario
 	textura_sprite.success = true
 	GameManager.total_score += 1
@@ -39,7 +40,7 @@ func mostrar_texto_victoria():
 func mostrar_texto_perder():
 	timer.stop()
 	failure = true
-	texto_perder.visible = true
+	# texto_perder.visible = true
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(next_scene)
 

@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg1f4vucwlm5g"]
+[gd_scene load_steps=10 format=3 uid="uid://dg1f4vucwlm5g"]
 
 [ext_resource type="Script" path="res://audio_manager.gd" id="1_iiwig"]
 [ext_resource type="AudioStream" uid="uid://bvy6lrhfxbx5n" path="res://audio/GGJ 2026_loose_test_1.ogg" id="2_lk0i2"]
 [ext_resource type="AudioStream" uid="uid://7b7fqu12h2t" path="res://audio/GGJ 2026_victory_test_1.ogg" id="3_mbnuf"]
 [ext_resource type="AudioStream" uid="uid://bfr8sb5npvb6g" path="res://audio/main_theme.ogg" id="4_5b3je"]
 [ext_resource type="AudioStream" uid="uid://duka2l323hkk6" path="res://audio/mini_games.ogg" id="5_jd3ly"]
+[ext_resource type="AudioStream" uid="uid://dmupkee5m8a22" path="res://audio/pick_item.ogg" id="6_2yjq8"]
+[ext_resource type="AudioStream" uid="uid://dmgr3edlk3d8s" path="res://audio/place_item.ogg" id="7_l23c5"]
+[ext_resource type="AudioStream" uid="uid://bu30s0hqln31k" path="res://audio/put_mask.ogg" id="8_vp4m5"]
+[ext_resource type="AudioStream" uid="uid://bdspdvcfaihe7" path="res://audio/making_mask.ogg" id="9_vo6xi"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_iiwig")
@@ -25,3 +29,18 @@ bus = &"Music"
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jd3ly")
 volume_db = -5.0
+
+[node name="PickItem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2yjq8")
+bus = &"SFX"
+
+[node name="PlaceItem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l23c5")
+bus = &"SFX"
+
+[node name="PutMask" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_vp4m5")
+bus = &"SFX"
+
+[node name="MakingMask" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vo6xi")

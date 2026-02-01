@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d17k0bqafnn6k"]
+[gd_scene load_steps=21 format=3 uid="uid://d17k0bqafnn6k"]
 
 [ext_resource type="Script" path="res://Level_4/node_2d.gd" id="1_p0cus"]
 [ext_resource type="Texture2D" uid="uid://bve81kxgs5s4f" path="res://assets/fondo_tirana02.jpg" id="1_v3lqp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Level_4/character_body_2d.gd" id="5_xnqte"]
 [ext_resource type="Texture2D" uid="uid://blnqm53cf480" path="res://assets/espacio.png" id="9_dtkkn"]
 [ext_resource type="Texture2D" uid="uid://brlvh8v2dvf86" path="res://assets/espacio2.png" id="10_qqurj"]
+[ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="11_5hd1d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xll4"]
 animations = [{
@@ -107,6 +108,9 @@ animations = [{
 "name": &"default",
 "speed": 2.0
 }]
+
+[sub_resource type="Theme" id="Theme_gf7nn"]
+default_font_size = 30
 
 [node name="Dance" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
@@ -223,6 +227,7 @@ one_shot = true
 autostart = true
 
 [node name="ResultLabel" type="Label" parent="."]
+visible = false
 offset_left = 303.0
 offset_top = 104.0
 offset_right = 343.0
@@ -230,6 +235,7 @@ offset_bottom = 173.0
 theme_override_font_sizes/font_size = 50
 
 [node name="TimeLabel" type="Label" parent="."]
+visible = false
 offset_left = 392.0
 offset_right = 432.0
 offset_bottom = 23.0
@@ -274,6 +280,26 @@ position = Vector2(544, 306)
 scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_x0abx")
 autoplay = "default"
+
+[node name="TimerContainer" type="MarginContainer" parent="."]
+offset_left = 42.0
+offset_top = 237.0
+offset_right = 82.0
+offset_bottom = 280.0
+scale = Vector2(2.28, 2.12)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TimerContainer"]
+layout_mode = 2
+theme = SubResource("Theme_gf7nn")
+text = "6"
+
+[node name="Sprite2D" type="Sprite2D" parent="TimerContainer"]
+show_behind_parent = true
+position = Vector2(10.0877, 21.6981)
+rotation = 0.785398
+scale = Vector2(0.7, 0.7)
+skew = 0.0296706
+texture = ExtResource("11_5hd1d")
 
 [connection signal="body_entered" from="Bullseye" to="." method="_on_bullseye_body_entered"]
 [connection signal="body_exited" from="Bullseye" to="." method="_on_bullseye_body_exited"]

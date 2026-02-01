@@ -11,14 +11,16 @@ extends Node2D
 
 @onready var fillable_area = $FillableArea
 
+@onready var time_label = $TimerContainer/RichTextLabel
+
 const MIN_SCORE_REQUIRED = 80
 var has_won = false
 
 func _ready():
-	time.text = str(timer.wait_time)
+	time_label.text = str(timer.wait_time)
 
 func _process(_delta):
-	time.text = str(round(timer.time_left))
+	time_label.text = str(round(timer.time_left))
 	if get_mean_score() >= 100 && !has_won: 
 		show_results()
 
@@ -35,6 +37,7 @@ func show_results():
 	var mean_score = get_mean_score()
 	if mean_score > MIN_SCORE_REQUIRED: 
 		result_label.text = "ÉXITO"
+		AudioManager.play_making_mask()
 		GameManager.total_score += 1
 	else: result_label.text = "¡PERDEDOR!"
 	await get_tree().create_timer(1).timeout

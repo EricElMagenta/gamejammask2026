@@ -10,7 +10,7 @@ var score := 0
 
 @onready var result_label = $ResultLabel
 @onready var timer = $Timer
-@onready var time_label = $TimeLabel
+@onready var time_label = $TimerContainer/RichTextLabel
 
 func _ready():
 	time_label.text = str(round(timer.wait_time))
@@ -22,6 +22,7 @@ func _physics_process(_delta):
 
 
 func destroy_target(target):
+	AudioManager.play_pick_item()
 	target.queue_free()
 	score += 1
 	current_target = null

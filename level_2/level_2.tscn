@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddradf205mbgq"]
+[gd_scene load_steps=14 format=3 uid="uid://ddradf205mbgq"]
 
 [ext_resource type="Script" path="res://level_2/level_2.gd" id="1_5iwyr"]
 [ext_resource type="PackedScene" uid="uid://buk51jax2gxuj" path="res://Level_3/dressup.tscn" id="2_o6gs2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfxn8amk86irv" path="res://level_2/fillable_area.tscn" id="4_4466f"]
 [ext_resource type="Texture2D" uid="uid://dfw67n4bbwp3d" path="res://assets/desplazamientodemausse.png" id="5_adiec"]
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="6_jk4oc"]
+[ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="8_48xp4"]
 
 [sub_resource type="Animation" id="Animation_b1sdo"]
 length = 0.001
@@ -107,6 +108,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="Theme" id="Theme_eedft"]
+default_font_size = 30
+
 [node name="Level2" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
 script = ExtResource("1_5iwyr")
@@ -185,6 +189,26 @@ scale = Vector2(0.311245, 0.311245)
 sprite_frames = SubResource("SpriteFrames_falft")
 autoplay = "default"
 frame_progress = 0.726046
+
+[node name="TimerContainer" type="MarginContainer" parent="."]
+offset_left = 42.0
+offset_top = 237.0
+offset_right = 82.0
+offset_bottom = 280.0
+scale = Vector2(2.28, 2.12)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TimerContainer"]
+layout_mode = 2
+theme = SubResource("Theme_eedft")
+text = "6"
+
+[node name="Sprite2D" type="Sprite2D" parent="TimerContainer"]
+show_behind_parent = true
+position = Vector2(10.0877, 21.6981)
+rotation = 0.785398
+scale = Vector2(0.7, 0.7)
+skew = 0.0296706
+texture = ExtResource("8_48xp4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

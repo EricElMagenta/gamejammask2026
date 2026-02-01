@@ -5,6 +5,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var time = %Time
 @onready var result_label = $ResultLabel
+@onready var time_label = $TimerContainer/RichTextLabel
 
 const SCORE_REQUIRED = 3
 
@@ -12,13 +13,13 @@ var showed_results = false
 
 
 func _ready():
-	time.text = str(timer.wait_time)
+	time_label.text = str(timer.wait_time)
 	AudioManager.stop_music()
 	AudioManager.play_game_music()
 
 
 func _process(_delta):
-	time.text = str(round(timer.time_left))
+	time_label.text = str(round(timer.time_left))
 	if bolsa.score == 3 && !showed_results: show_results()
 
 func show_results():

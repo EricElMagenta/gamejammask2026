@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4568ccqddg6a"]
+[gd_scene load_steps=20 format=3 uid="uid://c4568ccqddg6a"]
 
 [ext_resource type="Script" path="res://assets/Scenes/level_1.gd" id="1_kla56"]
 [ext_resource type="PackedScene" uid="uid://ddradf205mbgq" path="res://level_2/level_2.tscn" id="2_ocdra"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b3bbkppesg65l" path="res://assets/clickderecho.png" id="7_pbvbb"]
 [ext_resource type="Texture2D" uid="uid://d2dt30fy8tvv8" path="res://assets/scotch.png" id="8_swnxl"]
 [ext_resource type="Texture2D" uid="uid://b3ebl3f2daanw" path="res://assets/acrilicos.png" id="9_6s2bk"]
+[ext_resource type="Texture2D" uid="uid://c7cnw52l17r6p" path="res://assets/timer_placeholder.png" id="11_h6kv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4e7u4"]
 size = Vector2(128, 104)
@@ -83,6 +84,9 @@ _data = {
 "RESET": SubResource("Animation_65ohk"),
 "transition": SubResource("Animation_od4eo")
 }
+
+[sub_resource type="Theme" id="Theme_wbrrr"]
+default_font_size = 30
 
 [node name="Main" type="Node2D"]
 modulate = Color(0, 0, 0, 1)
@@ -162,7 +166,6 @@ metadata/_edit_group_ = true
 texture = ExtResource("8_swnxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Item2"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0us1i")
 
 [node name="Button" type="Button" parent="Item2"]
@@ -209,6 +212,26 @@ libraries = {
 "": SubResource("AnimationLibrary_kdkxv")
 }
 autoplay = "transition"
+
+[node name="TimerContainer" type="MarginContainer" parent="."]
+offset_left = 42.0
+offset_top = 237.0
+offset_right = 82.0
+offset_bottom = 280.0
+scale = Vector2(2.28, 2.12)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TimerContainer"]
+layout_mode = 2
+theme = SubResource("Theme_wbrrr")
+text = "6"
+
+[node name="Sprite2D" type="Sprite2D" parent="TimerContainer"]
+show_behind_parent = true
+position = Vector2(10.0877, 21.6981)
+rotation = 0.785398
+scale = Vector2(0.7, 0.7)
+skew = 0.0296706
+texture = ExtResource("11_h6kv6")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TransitionTimer" to="." method="_on_transition_timer_timeout"]

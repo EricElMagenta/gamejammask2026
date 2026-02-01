@@ -31,3 +31,15 @@ func play_victory():
 
 func play_defeat():
     $Defeat.play()
+
+func play_pick_item():
+    $PickItem.play()
+
+func play_place_item():
+    $PlaceItem.play()
+
+func play_put_mask():
+    $PutMask.play()
+
+func play_making_mask():
+    $MakingMask.play()
