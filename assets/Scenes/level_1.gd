@@ -3,10 +3,10 @@ extends Node2D
 @export var next_scene:PackedScene
 @onready var bolsa = $Bolsa
 @onready var timer = $Timer
-@onready var time = %Time
+@onready var time = $TimerContainer/RichTextLabel
 @onready var result_label = $ResultLabel
 
-const SCORE_REQUIRED = 3
+const SCORE_REQUIRED = 4
 
 var showed_results = false
 
@@ -19,7 +19,7 @@ func _ready():
 
 func _process(_delta):
 	time.text = str(round(timer.time_left))
-	if bolsa.score == 3 && !showed_results: show_results()
+	if bolsa.score == SCORE_REQUIRED && !showed_results: show_results()
 
 func show_results():
 	showed_results = true
